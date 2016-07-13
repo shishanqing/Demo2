@@ -105,6 +105,7 @@ public class ScrollHideListView extends Activity {
     //控制布局,显示隐藏的动画
     private void toolbarAnim(int flag){
         if(mAnimator != null && mAnimator.isRunning()){
+            Log.d(TAG,"mAnimator != null");
             mAnimator.cancel();
         }
 
@@ -112,7 +113,7 @@ public class ScrollHideListView extends Activity {
             Log.d(TAG, "flag == 0");
             mAnimator = ObjectAnimator.ofFloat(mToolbar,
                     "transltionY",mToolbar.getTranslationY(),0);
-        }else {
+        }else if(flag == 1){
             Log.d(TAG, "flag == 1");
             mAnimator = ObjectAnimator.ofFloat(mToolbar,
                     "translationY",mToolbar.getTranslationY(),-mToolbar.getHeight());
